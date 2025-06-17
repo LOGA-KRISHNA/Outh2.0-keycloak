@@ -1,0 +1,44 @@
+<div class="container">
+    <header>
+        <h1>{{ title }}</h1>
+        <div class="auth-status">
+            @if (isAuthenticated()) {
+                <div class="user-info">
+                    Welcome, {{ username() }}!
+                    <button class="logout-btn" (click)="logout()">Logout</button>
+                </div>
+            }
+            @else {
+                <button class="login-btn" (click)="login()">Login</button>
+            }
+        </div>
+    </header>
+
+    <main>
+        <div class="api-section">
+            <h2>API Endpoints</h2>
+            
+            <div class="endpoint-card">
+                <h3>Public Endpoint</h3>
+                <button (click)="callPublic()" class="api-btn">Call Public API</button>
+                <p class="response">{{ publicResponse() }}</p>
+            </div>
+
+            <div class="endpoint-card">
+                <h3>User Endpoint</h3>
+                <button (click)="callUser()" class="api-btn">
+                    Call User API
+                </button>
+                <p class="response">{{ userResponse() }}</p>
+            </div>
+
+            <div class="endpoint-card">
+                <h3>Admin Endpoint</h3>
+                <button (click)="callAdmin()"  class="api-btn">
+                    Call Admin API
+                </button>
+                <p class="response">{{ adminResponse() }}</p>
+            </div>
+        </div>
+    </main>
+</div>
